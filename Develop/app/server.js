@@ -14,7 +14,7 @@ app.use(express.static("public"));
 
 
 //links to the routes are server is using
-app.use(require("./routes/routes.js"));
+app.use(require("../routes/routes.js"));
 
 
 
