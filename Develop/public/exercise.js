@@ -10,7 +10,7 @@ const durationInput = document.querySelector("#duration");
 const resistanceDurationInput = document.querySelector("#resistance-duration");
 const distanceInput = document.querySelector("#distance");
 const completeButton = document.querySelector("button.complete");
-const addButton = document.querySelector("button.add-another");
+const addButton = document.querySelector("button.add-another");//->
 const toast = document.querySelector("#toast");
 const newWorkout = document.querySelector(".new-workout")
 
@@ -22,7 +22,7 @@ async function initExercise() {
 
   if (location.search.split("=")[1] === undefined) {
     workout = await API.createWorkout()
-    console.log(workout)
+    console.log("This is the data that was returned after the workout was created: ",workout)
   }
   if (workout) {
     location.search = "?id=" + workout._id;
@@ -87,9 +87,11 @@ function validateInputs() {
   }
 
   if (isValid) {
+    console.log("The isValid variable is currently true")
     completeButton.removeAttribute("disabled");
     addButton.removeAttribute("disabled");
   } else {
+    console.log("The isValid variable is still false")
     completeButton.setAttribute("disabled", true);
     addButton.setAttribute("disabled", true);
   }
@@ -115,6 +117,7 @@ async function handleFormSubmit(event) {
   }
 
   await API.addExercise(workoutData);
+  console.log("Add exercise function should have been run this is the workoutData:",workoutData)
   clearInputs();
   toast.classList.add("success");
 }

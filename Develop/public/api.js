@@ -3,10 +3,15 @@ const API = {
     let res;
     try {
       res = await fetch("/api/workouts");
+      console.log("This is the response from making a get request to the endpoint /api/workouts:",res)
+
     } catch (err) {
       console.log(err)
     }
     const json = await res.json();
+    console.log("This is the res.json I get after the hitting the /api/workouts endpoint",json);
+    console.log("This is the length of json (json.length):", json.length);
+
 
     return json[json.length - 1];
   },

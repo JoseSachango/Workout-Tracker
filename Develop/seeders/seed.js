@@ -1,5 +1,5 @@
 let mongoose = require("mongoose");
-let db = require("../models");
+let db = require("../models"); //requiring multiple models on one variable -> calling ../models means we're looking at the index.js file in the models folder.
 
 mongoose.connect("mongodb://localhost/workout", {
   useNewUrlParser: true,
@@ -134,3 +134,6 @@ db.Workout.deleteMany({})
     console.error(err);
     process.exit(1);
   });
+
+
+ 
