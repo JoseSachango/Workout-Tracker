@@ -42,7 +42,7 @@ router.get("/api/workouts", function(req, res) {
          }).catch(err=>{
              console.log("The err returned from the aggregate method of the workout model: ",err)
          });*/
-
+         
 
 
          

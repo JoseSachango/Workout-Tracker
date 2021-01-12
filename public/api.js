@@ -12,8 +12,13 @@ const API = {
     console.log("This is the res.json I get after the hitting the /api/workouts endpoint",json);
     console.log("This is the length of json (json.length):", json.length);
 
+    let lastWorkoutD = json[json.length - 1];
+    lastWorkoutD.totalDuration = 0
+    lastWorkoutD.exercises.forEach(exercise=>{lastWorkoutD.totalDuration+=exercise.duration})
 
-    return json[json.length - 1];
+    return lastWorkoutD
+    //return json[json.length - 1];
+    //access the exercises key and loop through array. for each value in the array access the objects duration property.
   },
   async addExercise(data) {
     const id = location.search.split("=")[1];
